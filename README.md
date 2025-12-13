@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8" />
-<title>Dashboard المرتجعات Online</title>
+<title>Dashboard  </title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -16,27 +15,27 @@ body {font-family: sans-serif; background:#f4f4f4; padding:20px;}
 <body>
 
 <div class="container">
-<h2>📦 Dashboard المرتجعات (Online)</h2>
+<h2>📦 Dashboard  <h2>
 
 <div class="card">
-<h3>📊 الإحصائيات العامة</h3>
-<p>إجمالي المرتجعات: <span id="totalReturns">0</span></p>
-<p>عدد الفواتير: <span id="invoiceCount">0</span></p>
-<p>أكثر نوع مرتجع تكراراً: <span id="topItem">-</span></p>
+<h3>📊  dashboard</h3>
+<p>nomber of return: <span id="totalReturns">0</span></p>
+<p> <span id="invoiceCount"></span></p>
+<p> <span id="topItem">-</span></p>
 </div>
 
 <div class="card">
-<h3>📈 المرتجعات حسب نوع المرتجع</h3>
+<h3>📈  return type   </h3>
 <canvas id="typeChart"></canvas>
 </div>
 
-<div class="card">
+<!-- <div class="card">
 <h3>📅 الفواتير اليومية</h3>
 <canvas id="dailyChart"></canvas>
-</div>
+</div> -->
 
 <div class="card">
-<h3>👤 المرتجعات حسب الزبون</h3>
+<h3>👤  client returns  </h3>
 <canvas id="clientChart"></canvas>
 </div>
 
@@ -124,11 +123,11 @@ function generateCharts(){
         options:{responsive:true}
     });
 
-    new Chart(dailyChart, {
-        type:"line",
-        data:{labels:Object.keys(days), datasets:[{data:Object.values(days)}]},
-        options:{responsive:true}
-    });
+    // new Chart(dailyChart, {
+    //     type:"line",
+    //     data:{labels:Object.keys(days), datasets:[{data:Object.values(days)}]},
+    //     options:{responsive:true}
+    // });
 
     new Chart(clientChart, {
         type:"bar",
