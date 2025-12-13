@@ -43,79 +43,66 @@ body {font-family: sans-serif; background:#f4f4f4; padding:20px;}
 </div>
 
 <script>
-// 🔴 رابط Google Sheets CSV
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1YYrDLGyKiYfZT1c9Bq6mzJz2K68NsF66eR_ACAUpaHn2oeT5fYBYIWWZw4_oBA/pub?gid=1241838978&single=true&output=csv";
+// 🔴 ضع رابط Google Sheets CSV هنا
+const SHEET_URL = "PUT_YOUR_GOOGLE_SHEET_CSV_LINK_HERE";
 
 let excelData = [];
-let colType = "", colClient = "", colDate = "";
+let returnTypeColumn = "";
 
-/* تحميل البيانات */
+// تحميل البيانات من Google Sheets
 function loadData(){
     Papa.parse(SHEET_URL, {
         download: true,
         header: true,
         complete: function(result){
             excelData = result.data.filter(r => Object.keys(r).length > 1);
-            detectColumns();
+            detectReturnTypeColumn();
             generateStats();
             generateCharts();
         }
     });
 }
 
-/* التعرف التلقائي على الأعمدة */
-function detectColumns(){
+// اكتشاف عمود نوع المرتجع تلقائيًا
+function detectReturnTypeColumn(){
     const sample = excelData[0];
-
     for(let key in sample){
-        const k = key.toLowerCase();
-
-        if(!colType && (k.includes("type") || k.includes("return") || k.includes("مرتجع")))
-            colType = key;
-
-        if(!colClient && (k.includes("client") || k.includes("customer") || k.includes("زبون")))
-            colClient = key;
-
-        if(!colDate && (k.includes("date") || k.includes("تاريخ")))
-            colDate = key;
+        if(key.toLowerCase().includes("type") || key.toLowerCase().includes("return")){
+            returnTypeColumn = key;
+            break;
+        }
     }
 }
 
-/* الإحصائيات */
+// الإحصائيات
 function generateStats(){
     let total = 0;
     let invoices = new Set();
     let typeCount = {};
 
     excelData.forEach(r=>{
-        if(r[colType]){
+        if(r[returnTypeColumn]){
             total++;
-            typeCount[r[colType]] = (typeCount[r[colType]]||0)+1;
+            typeCount[r[returnTypeColumn]] = (typeCount[r[returnTypeColumn]]||0)+1;
         }
-        if(r[colClient]) invoices.add(r[colClient]);
+        if(r["client code"]) invoices.add(r["client code"]);
     });
 
-    let topType = Object.entries(typeCount)
-        .sort((a,b)=>b[1]-a[1])[0]?.[0] || "-";
+    let topType = Object.entries(typeCount).sort((a,b)=>b[1]-a[1])[0]?.[0] || "-";
 
     totalReturns.innerText = total;
     invoiceCount.innerText = invoices.size;
     topItem.innerText = topType;
 }
 
-/* الرسومات */
+// الرسومات
 function generateCharts(){
     const types = {}, days = {}, clients = {};
 
     excelData.forEach(r=>{
-        if(r[colType])
-            types[r[colType]] = (types[r[colType]]||0)+1;
-
-        if(r[colDate])
-            days[r[colDate]] = (days[r[colDate]]||0)+1;
-
-        if(r[colClient])
-            clients[r[colClient]] = (clients[r[colClient]]||0)+1;
+        types[r[returnTypeColumn]] = (types[r[returnTypeColumn]]||0)+1;
+        days[r.Date || "غير معروف"] = (days[r.Date || "غير معروف"]||0)+1;
+        clients[r["client code"]] = (clients[r["client code"]]||0)+1;
     });
 
     new Chart(typeChart, {
@@ -136,14 +123,6 @@ function generateCharts(){
         options:{responsive:true}
     });
 }
-
-/* تحميل أولي + تحديث تلقائي */
-loadData();
-setInterval(loadData, 30000);
-</script>
-
-</body>
-</html>}
 
 // تحميل أولي + تحديث تلقائي كل 30 ثانية
 loadData();
