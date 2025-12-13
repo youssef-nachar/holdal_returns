@@ -212,21 +212,54 @@
             new Chart(typeChart, {
                 type: "bar",
                 data: { labels: Object.keys(types), datasets: [{ data: Object.values(types) }] },
-                options: { responsive: true }
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            ticks: {
+                                beginAtZero: true,    // Start from 1
+                                stepSize: 1,          // Increment by 1
+                                precision: 0          // Round to whole numbers
+                            }
+                        }
+                    }
+                }
             });
 
             // Uncomment to display daily chart
             // new Chart(dailyChart, {
             //     type: "line",
             //     data: { labels: Object.keys(days), datasets: [{ data: Object.values(days) }] },
-            //     options: { responsive: true }
+            //     options: {
+            //         responsive: true,
+            //         scales: {
+            //             y: {
+            //                 ticks: {
+            //                     beginAtZero: true,
+            //                     stepSize: 1,       // Increment by 1
+            //                     precision: 0       // Round to whole numbers
+            //                 }
+            //             }
+            //         }
+            //     }
             // });
 
             // Client Chart
             new Chart(clientChart, {
                 type: "bar",
                 data: { labels: Object.keys(clients), datasets: [{ data: Object.values(clients) }] },
-                options: { responsive: true }
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            ticks: {
+                                beginAtZero: true,    // Start from 1
+                                stepSize: 1,          // Increment by 1
+                                precision: 0          // Round to whole numbers
+                            }
+                        }
+                    }
+                }
             });
         }
 
