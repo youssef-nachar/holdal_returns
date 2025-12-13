@@ -44,7 +44,7 @@ body {font-family: sans-serif; background:#f4f4f4; padding:20px;}
 
 <script>
 // 🔴 ضع رابط Google Sheets CSV هنا
-const SHEET_URL = "PUT_YOUR_GOOGLE_SHEET_CSV_LINK_HERE";
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1YYrDLGyKiYfZT1c9Bq6mzJz2K68NsF66eR_ACAUpaHn2oeT5fYBYIWWZw4_oBA/pub?gid=1241838978&single=true&output=csv";
 
 let excelData = [];
 let returnTypeColumn = "";
