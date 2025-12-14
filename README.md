@@ -26,7 +26,7 @@
             color: #f39c12; /* Gold color for header */
             padding: 20px 0;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2rem; /* Adjusted for better responsiveness */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -48,7 +48,6 @@
             padding: 20px 0;
             text-align: center;
             font-size: 1rem;
-            /* position: fixed; */
             width: 100%;
             bottom: 0;
             left: 0;
@@ -143,8 +142,12 @@
 
         /* Responsive design for mobile devices */
         @media (max-width: 768px) {
+            header {
+                font-size: 1.5rem; /* Adjust font size for smaller screens */
+            }
+
             .container {
-                padding: 20px;
+                padding: 15px;
             }
 
             h2 {
@@ -156,12 +159,15 @@
             }
 
             canvas {
-                height: 300px;
+                height: 250px; /* Adjust canvas size */
             }
 
-            /* Make the container and text more flexible */
             h3 {
-                font-size: 1.5rem;
+                font-size: 1.5rem; /* Adjust card titles */
+            }
+
+            footer {
+                font-size: 0.9rem; /* Adjust footer text for small screens */
             }
         }
 
@@ -183,12 +189,9 @@
     <!-- Header Section -->
     <header>
         <h2>📦 Returns Dashboard</h2>
-        
     </header>
 
     <div class="container">
-        <!-- <h2>📦 Returns Dashboard</h2> -->
-
         <div class="card">
             <h3>📊 Dashboard Overview</h3>
             <p>Number of returns: <span id="totalReturns">0</span></p>
