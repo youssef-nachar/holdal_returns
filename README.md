@@ -148,6 +148,7 @@
 
             .container {
                 padding: 15px;
+                width:100%
             }
 
             h2 {
@@ -155,6 +156,7 @@
             }
 
             .card {
+            
                 padding: 15px;
             }
 
@@ -170,7 +172,20 @@
                 font-size: 0.9rem; /* Adjust footer text for small screens */
             }
         }
+ @media (max-width: 400px) {
+            header {
+                font-size: 1.5rem; /* Adjust font size for smaller screens */
+            }
 
+            .container {
+                padding: 15px;
+                width:100%
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+            }
         /* Loading Spinner */
         .loading {
             display: flex;
