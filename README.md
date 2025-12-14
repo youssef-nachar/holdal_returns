@@ -152,7 +152,7 @@
             .container {
                 padding: 15px;
                 width:100%;
-                margin-top:100px
+                margin-top:120px
             }
 
             h2 {
