@@ -21,7 +21,6 @@
 
         /* Header styles */
         header {
-        height:100px;
         top:0;
         left:0;
         position:fixed;
@@ -152,7 +151,8 @@
 
             .container {
                 padding: 15px;
-                width:100%
+                width:100%;
+                margin-top:20px
             }
 
             h2 {
