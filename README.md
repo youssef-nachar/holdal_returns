@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Returns Dashboard</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,7 +17,7 @@
             margin: 0;
             padding: 0;
             color: #ecf0f1; /* Light grey text */
-            transition: background-color 0.5s ease; /* Smooth transition for background */
+            transition: background-color 0.5s ease;
         }
 
         /* Container styling */
@@ -27,7 +28,7 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-in-out; /* Fade-in animation for page load */
+            animation: fadeIn 1s ease-in-out;
         }
 
         /* Fade-in animation */
@@ -46,7 +47,7 @@
             color: #f39c12; /* Gold color for header */
             font-size: 2.5rem;
             margin-bottom: 20px;
-            animation: slideIn 1s ease-out; /* Slide-in animation */
+            animation: slideIn 1s ease-out;
         }
 
         /* Slide-in animation */
@@ -63,7 +64,7 @@
 
         /* Card layout */
         .card {
-            background: #3f464d; /* Dark teal */
+            background: #1abc9c; /* Dark teal */
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 25px;
@@ -72,9 +73,9 @@
         }
 
         .card:hover {
-            transform: translateY(-8px); /* More prominent hover effect */
+            transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            animation: bounce 0.5s ease; /* Bounce effect */
+            animation: bounce 0.5s ease;
         }
 
         /* Bounce animation */
@@ -92,7 +93,7 @@
 
         /* Card title */
         h3 {
-            color: #ecf0f1; /* Light grey color for titles */
+            color: #ecf0f1;
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
@@ -105,7 +106,7 @@
 
         .card span {
             font-weight: bold;
-            color: #f39c12; /* Gold for emphasis */
+            color: #f39c12;
         }
 
         /* Chart area */
@@ -113,13 +114,13 @@
             width: 100%;
             height: 400px;
             border-radius: 10px;
-            animation: slideIn 1.5s ease-out; /* Animation for charts */
+            animation: slideIn 1.5s ease-out;
         }
 
-        /* Responsive styles for small screens */
+        /* Responsive design for mobile devices */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 20px;
             }
 
             h2 {
@@ -133,6 +134,11 @@
             canvas {
                 height: 300px;
             }
+
+            /* Make the container and text more flexible */
+            h3 {
+                font-size: 1.5rem;
+            }
         }
 
         /* Loading Spinner */
@@ -141,7 +147,7 @@
             justify-content: center;
             align-items: center;
             font-size: 1.5rem;
-            color: #f39c12; /* Gold color */
+            color: #f39c12;
             height: 100vh;
         }
 
