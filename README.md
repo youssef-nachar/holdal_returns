@@ -22,6 +22,9 @@
 
         /* Header styles */
         header {
+        display:fixed;
+        height:60px;
+        font-size:14px;
             background-color: #34495e; /* Darker grey-blue */
             color: #f39c12; /* Gold color for header */
             padding: 20px 0;
