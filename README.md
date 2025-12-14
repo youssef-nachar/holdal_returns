@@ -12,48 +12,87 @@
         /* Global body styles */
         body {
             font-family: 'Arial', sans-serif;
-            background: #f5f5f5;
+            background: #2c3e50; /* Dark grey-blue background */
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #ecf0f1; /* Light grey text */
+            transition: background-color 0.5s ease; /* Smooth transition for background */
         }
 
         /* Container styling */
         .container {
             max-width: 1200px;
             margin: 40px auto;
-            background: #ffffff;
+            background: #34495e; /* Darker grey-blue for containers */
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation for page load */
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         /* Header */
         h2 {
             text-align: center;
-            color: #007bff;
+            color: #f39c12; /* Gold color for header */
             font-size: 2.5rem;
             margin-bottom: 20px;
+            animation: slideIn 1s ease-out; /* Slide-in animation */
+        }
+
+        /* Slide-in animation */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Card layout */
         .card {
-            background: #eef4ff;
+            background: #3f464d; /* Dark teal */
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px); /* More prominent hover effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            animation: bounce 0.5s ease; /* Bounce effect */
+        }
+
+        /* Bounce animation */
+        @keyframes bounce {
+            0% {
+                transform: translateY(-8px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-8px);
+            }
         }
 
         /* Card title */
         h3 {
-            color: #333;
+            color: #ecf0f1; /* Light grey color for titles */
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
@@ -66,7 +105,7 @@
 
         .card span {
             font-weight: bold;
-            color: #007bff;
+            color: #f39c12; /* Gold for emphasis */
         }
 
         /* Chart area */
@@ -74,6 +113,7 @@
             width: 100%;
             height: 400px;
             border-radius: 10px;
+            animation: slideIn 1.5s ease-out; /* Animation for charts */
         }
 
         /* Responsive styles for small screens */
@@ -101,9 +141,10 @@
             justify-content: center;
             align-items: center;
             font-size: 1.5rem;
-            color: #007bff;
+            color: #f39c12; /* Gold color */
             height: 100vh;
         }
+
     </style>
 </head>
 
@@ -123,12 +164,6 @@
             <h3>📈 Return Types</h3>
             <canvas id="typeChart"></canvas>
         </div>
-
-        <!-- Uncomment if you want to include daily data chart -->
-        <!-- <div class="card">
-            <h3>📅 Daily Returns</h3>
-            <canvas id="dailyChart"></canvas>
-        </div> -->
 
         <div class="card">
             <h3>👤 Client Returns</h3>
@@ -217,32 +252,14 @@
                     scales: {
                         y: {
                             ticks: {
-                                beginAtZero: true,    // Start from 1
-                                stepSize: 1,          // Increment by 1
-                                precision: 0          // Round to whole numbers
+                                beginAtZero: true,
+                                stepSize: 1,
+                                precision: 0
                             }
                         }
                     }
                 }
             });
-
-            // Uncomment to display daily chart
-            // new Chart(dailyChart, {
-            //     type: "line",
-            //     data: { labels: Object.keys(days), datasets: [{ data: Object.values(days) }] },
-            //     options: {
-            //         responsive: true,
-            //         scales: {
-            //             y: {
-            //                 ticks: {
-            //                     beginAtZero: true,
-            //                     stepSize: 1,       // Increment by 1
-            //                     precision: 0       // Round to whole numbers
-            //                 }
-            //             }
-            //         }
-            //     }
-            // });
 
             // Client Chart
             new Chart(clientChart, {
@@ -253,9 +270,9 @@
                     scales: {
                         y: {
                             ticks: {
-                                beginAtZero: true,    // Start from 1
-                                stepSize: 1,          // Increment by 1
-                                precision: 0          // Round to whole numbers
+                                beginAtZero: true,
+                                stepSize: 1,
+                                precision: 0
                             }
                         }
                     }
