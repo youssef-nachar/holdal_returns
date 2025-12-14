@@ -21,6 +21,7 @@
 
         /* Header styles */
         header {
+        height:100px;
         top:0;
         left:0;
         position:fixed;
