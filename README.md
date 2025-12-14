@@ -21,6 +21,8 @@
 
         /* Header styles */
         header {
+        top:0;
+        left:0;
         position:fixed;
         font-size:14px;
             background-color: #34495e; /* Darker grey-blue */
